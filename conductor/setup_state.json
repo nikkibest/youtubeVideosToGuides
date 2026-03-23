@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "project_type": "greenfield",
+  "current_section": "generating",
+  "current_question": 0,
+  "completed_sections": ["product", "guidelines", "tech_stack", "workflow", "styleguides"],
+  "answers": {
+    "project_name": "YouTube to Guides",
+    "description": "A CLI tool for transforming YouTube video content into readable guides",
+    "problem_statement": "Users desire a nice, structured and readable guide from a YouTube tutorial video (e.g. handstand tutorial, fingerstyle guitar notes) with clear images, screenshots and text of each step for reference during practice",
+    "target_users": "Learners who watch tutorial videos and want structured reference documents, and content consumers who want offline, readable versions of YouTube guides",
+    "key_goals": "Turn a YouTube training tutorial, guitar song notes or other video into a clear and structured step-by-step document using clear images, screenshots and text of each step",
+    "voice_tone": "Concise and direct",
+    "design_principles": "Developer experience focused",
+    "primary_languages": "Python",
+    "frontend": "None / CLI only",
+    "backend": "None / CLI only",
+    "database": "None / Stateless",
+    "infrastructure": "Not decided yet",
+    "tdd_strictness": "Flexible - tests recommended for complex logic",
+    "commit_strategy": "Conventional Commits (feat:, fix:, etc.)",
+    "code_review": "Required for non-trivial changes",
+    "verification": "After each task completion",
+    "style_guides": "Python",
+    "existing_conventions": "No, generate fresh guides"
+  },
+  "files_created": [],
+  "started_at": "2026-03-22T00:00:00Z",
+  "last_updated": "2026-03-22T00:00:00Z"
+}

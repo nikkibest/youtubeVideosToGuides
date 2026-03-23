@@ -1,0 +1,36 @@
+[project]
+name = "ytguide"
+version = "0.1.0"
+description = "CLI tool that converts YouTube videos into structured, step-by-step guides"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "opencv-python>=4.9.0",
+    "pillow>=10.0.0",
+    "rich>=13.0.0",
+    "typer>=0.12.0",
+    "yt-dlp>=2024.1.0",
+    "youtube-transcript-api>=0.6.0",
+]
+
+[project.scripts]
+ytguide = "ytguide.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
