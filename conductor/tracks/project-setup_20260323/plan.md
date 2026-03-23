@@ -17,10 +17,10 @@ Initialize the Python package with `uv`, configure tooling, and create the direc
 
 ### Tasks
 
-- [~] Task 1.1: Initialize project with `uv init` and create `pyproject.toml` with project metadata, dependencies, and `ruff` config (line length 88)
-- [~] Task 1.2: Create directory structure: `ytguide/`, `ytguide/cli.py`, `ytguide/transcript.py`, `ytguide/video.py`, `ytguide/images.py`, `ytguide/output.py`, `ytguide/templates.py`, `tests/`
-- [~] Task 1.3: Add `.gitignore`, `.python-version`, and `README.md` stub
-- [~] Task 1.4: Initialize `git` repo and make initial commit (`chore: initialize project`)
+- [x] Task 1.1: Initialize project with `uv init` and create `pyproject.toml` with project metadata, dependencies, and `ruff` config (line length 88)
+- [x] Task 1.2: Create directory structure: `ytguide/`, `ytguide/cli.py`, `ytguide/transcript.py`, `ytguide/video.py`, `ytguide/images.py`, `ytguide/output.py`, `ytguide/templates.py`, `tests/`
+- [x] Task 1.3: Add `.gitignore`, `.python-version`, and `README.md` stub
+- [x] Task 1.4: Initialize `git` repo and make initial commit (`chore: initialize project`)
 
 ### Verification
 
