@@ -52,11 +52,11 @@ Implement fetching of video metadata, transcript, and frame extraction.
 
 ### Tasks
 
-- [ ] Task 3.1: Implement `ytguide/transcript.py` — `fetch_transcript(url: str) -> list[dict]` using `youtube-transcript-api`
-- [ ] Task 3.2: Implement `ytguide/video.py` — `fetch_metadata(url: str) -> dict` using `yt-dlp` (title, description, duration, chapters if available)
-- [ ] Task 3.3: Implement `ytguide/video.py` — `download_video(url: str, output_dir: Path) -> Path` using `yt-dlp`
-- [ ] Task 3.4: Implement `ytguide/images.py` — `extract_frames(video_path: Path, timestamps: list[float], output_dir: Path) -> list[Path]` using `opencv-python`
-- [ ] Task 3.5: Wire all three into the `generate` command so running it fetches metadata + transcript + downloads video + extracts sample frames
+- [x] Task 3.1: Implement `ytguide/transcript.py` — `fetch_transcript(url: str) -> list[dict]` using `youtube-transcript-api`
+- [x] Task 3.2: Implement `ytguide/video.py` — `fetch_metadata(url: str) -> dict` using `yt-dlp` (title, description, duration, chapters if available)
+- [x] Task 3.3: Implement `ytguide/video.py` — `download_video(url: str, output_dir: Path) -> Path` using `yt-dlp`
+- [x] Task 3.4: Implement `ytguide/images.py` — `extract_frames(video_path: Path, timestamps: list[float], output_dir: Path) -> list[Path]` using `opencv-python`
+- [x] Task 3.5: Wire all three into the `generate` command so running it fetches metadata + transcript + downloads video + extracts sample frames
 
 ### Verification
 
