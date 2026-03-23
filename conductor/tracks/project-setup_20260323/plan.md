@@ -35,9 +35,9 @@ Wire up the `typer` CLI with the `generate` command skeleton.
 
 ### Tasks
 
-- [ ] Task 2.1: Create `ytguide/cli.py` with a `typer.Typer()` app and a `generate` command that accepts a YouTube URL argument
-- [ ] Task 2.2: Register the CLI entry point in `pyproject.toml` (`ytguide = "ytguide.cli:app"`)
-- [ ] Task 2.3: Add `rich` progress output placeholders in the `generate` command (e.g. "Fetching transcript...", "Extracting frames...")
+- [x] Task 2.1: Create `ytguide/cli.py` with a `typer.Typer()` app and a `generate` command that accepts a YouTube URL argument
+- [x] Task 2.2: Register the CLI entry point in `pyproject.toml` (`ytguide = "ytguide.cli:app"`)
+- [x] Task 2.3: Add `rich` progress output placeholders in the `generate` command (e.g. "Fetching transcript...", "Extracting frames...")
 
 ### Verification
 
