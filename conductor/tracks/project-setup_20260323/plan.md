@@ -71,9 +71,9 @@ Define the shared Markdown template so all guides look consistent regardless of 
 
 ### Tasks
 
-- [ ] Task 4.1: Create `ytguide/templates.py` with a `GuideTemplate` dataclass (title, intro, steps, outro) and a `render(guide: GuideTemplate) -> str` function that produces Markdown
-- [ ] Task 4.2: Create `ytguide/output.py` — `save_guide(content: str, output_dir: Path, title: str) -> Path` that writes the Markdown file with a sanitized filename
-- [ ] Task 4.3: Add a placeholder guide render in the `generate` command using dummy data to confirm the template pipeline works end-to-end
+- [~] Task 4.1: Create `ytguide/templates.py` with a `GuideTemplate` dataclass (title, intro, steps, outro) and a `render(guide: GuideTemplate) -> str` function that produces Markdown
+- [~] Task 4.2: Create `ytguide/output.py` — `save_guide(content: str, output_dir: Path, title: str) -> Path` that writes the Markdown file with a sanitized filename
+- [~] Task 4.3: Add a placeholder guide render in the `generate` command using dummy data to confirm the template pipeline works end-to-end
 
 ### Verification
 

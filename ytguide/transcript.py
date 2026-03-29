@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import (
     NoTranscriptFound,
@@ -14,8 +16,6 @@ class TranscriptNotAvailable(Exception):
 
 def _extract_video_id(url: str) -> str:
     """Extract YouTube video ID from a URL."""
-    import re
-
     patterns = [
         r"(?:v=|/)([0-9A-Za-z_-]{11})(?:[&?/]|$)",
         r"youtu\.be/([0-9A-Za-z_-]{11})",
@@ -45,12 +45,17 @@ def fetch_transcript(url: str, language: str = "en") -> list[dict]:
     """
     video_id = _extract_video_id(url)
     try:
-        transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+        api = YouTubeTranscriptApi()
+        transcript_list = api.list(video_id)
         try:
             transcript = transcript_list.find_transcript([language])
         except NoTranscriptFound:
             transcript = transcript_list.find_generated_transcript([language, "en"])
-        return transcript.fetch()
+        fetched = transcript.fetch()
+        return [
+            {"text": seg.text, "start": seg.start, "duration": seg.duration}
+            for seg in fetched
+        ]
     except (TranscriptsDisabled, VideoUnavailable) as exc:
         raise TranscriptNotAvailable(str(exc)) from exc
     except Exception as exc:

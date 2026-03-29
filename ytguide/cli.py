@@ -6,7 +6,10 @@ import typer
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
+from ytguide.guide import generate_guide
 from ytguide.images import FrameExtractionError, extract_frames, sample_timestamps
+from ytguide.output import save_guide
+from ytguide.templates import render
 from ytguide.transcript import TranscriptNotAvailable, fetch_transcript
 from ytguide.video import VideoUnavailable, download_video, fetch_metadata
 
@@ -79,7 +82,7 @@ def generate(
         frames_dir = output_dir / "frames"
         task = progress.add_task("Extracting frames...", total=None)
         try:
-            timestamps = sample_timestamps(metadata["duration"], count=10)
+            timestamps = sample_timestamps(metadata["duration"], count=15)
             frames = extract_frames(video_path, timestamps, frames_dir)
         except FrameExtractionError as exc:
             console.print(f"[yellow]Warning:[/yellow] {exc}")
@@ -90,17 +93,26 @@ def generate(
         )
         progress.stop_task(task)
 
-        # Step 5: Guide generation (Phase 4)
-        task = progress.add_task("Generating guide...", total=None)
-        # TODO: generate_guide(metadata, transcript, frames, output_dir) — Phase 4
+        # Step 5: Generate guide with Claude
+        task = progress.add_task("Generating guide with Claude AI...", total=None)
+        guide = generate_guide(metadata, transcript, frames, url)
         progress.update(
             task,
-            description="[dim]Guide generation coming in next phase[/dim]",
+            description=f"[green]✓[/green] Guide: {len(guide.steps)} steps",
         )
         progress.stop_task(task)
 
-    console.print(f"\n[bold green]Done![/bold green] Output directory: {output_dir}")
-    console.print(f"  Title:    {metadata['title']}")
-    console.print(f"  Duration: {metadata['duration']}s")
-    console.print(f"  Segments: {len(transcript)}")
-    console.print(f"  Frames:   {len(frames)}")
+        # Step 6: Save to disk
+        task = progress.add_task("Saving guide...", total=None)
+        content = render(guide, images_relative_to=output_dir)
+        guide_path = save_guide(content, output_dir, guide.title)
+        progress.update(
+            task,
+            description=f"[green]✓[/green] Saved: {guide_path.name}",
+        )
+        progress.stop_task(task)
+
+    console.print("\n[bold green]Done![/bold green]")
+    console.print(f"  Guide: {guide_path}")
+    console.print(f"  Steps: {len(guide.steps)}")
+    console.print(f"  Frames: {len(frames)}")
